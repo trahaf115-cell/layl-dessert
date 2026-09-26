@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: ar
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ===== الإعدادات العامة =====
+  - name: "settings"
+    label: "إعدادات الموقع"
+    files:
+      - name: "general"
+        label: "معلومات التواصل"
+        file: "content/settings.json"
+        fields:
+          - { label: "رقم الواتساب (مثال: 962791234567)", name: "whatsapp", widget: "string" }
+          - { label: "رقم الهاتف", name: "phone", widget: "string" }
+          - { label: "الإيميل", name: "email", widget: "string" }
+          - { label: "انستغرام", name: "instagram", widget: "string", required: false }
+          - { label: "فيسبوك", name: "facebook", widget: "string", required: false }
+          - { label: "العنوان", name: "address", widget: "string" }
+
+  # ===== الأصناف =====
+  - name: "products"
+    label: "قائمة الحلويات"
+    files:
+      - name: "menu"
+        label: "الأصناف"
+        file: "content/products.json"
+        fields:
+          - label: "الأصناف"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.price}} د.أ"
+            fields:
+              - { label: "اسم الصنف", name: "name", widget: "string" }
+              - { label: "الوصف", name: "description", widget: "text" }
+              - { label: "السعر (دينار أردني)", name: "price", widget: "number", value_type: "float" }
+              - { label: "التصنيف", name: "category", widget: "string" }
+              - { label: "الصورة", name: "image", widget: "image", required: false }
+              - { label: "متوفر للبيع", name: "available", widget: "boolean", default: true }
