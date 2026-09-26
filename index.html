@@ -9,8 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Great+Vibes&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css" />
+<!-- Netlify Identity Widget: هذا السطر هو اللي بيحل مشكلة الباسورد -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+
+<!-- Netlify Form for Orders (Hidden) -->
+<form name="order" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="text" name="phone" />
+  <input type="text" name="address" />
+  <input type="text" name="notes" />
+  <input type="text" name="items" />
+  <input type="text" name="total" />
+</form>
 
 <!-- ===== Header ===== -->
 <header class="site-header" id="header">
@@ -159,8 +171,8 @@
       <input type="tel" id="orderPhone" placeholder="رقم الهاتف *" required>
       <input type="text" id="orderAddress" placeholder="العنوان (المدينة، المنطقة، الشارع) *" required>
       <textarea id="orderNotes" placeholder="ملاحظات إضافية (اختياري)" rows="2"></textarea>
-      <button class="btn btn-primary btn-full" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
-      <p class="checkout-note">سيتم تحويلك لواتساب لإرسال تفاصيل الطلب. الدفع عند التسليم أو CliQ.</p>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">إتمام الطلب</button>
+      <p class="checkout-note">سيتم إرسال تفاصيل الطلب للإدارة. الدفع عند التسليم أو CliQ.</p>
     </div>
   </div>
 </aside>
