@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ليل | حلويات فاخرة - Layl Dessert</title>
+<meta name="description" content="ليل - حلويات فاخرة في الأردن. كيك، شوكولاتة، وحلويات تُصنع بحب." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Great+Vibes&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-en">Layl</span>
+      <span class="logo-ar">ليل</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#home">الرئيسية</a>
+      <a href="#menu">القائمة</a>
+      <a href="#about">عنّا</a>
+      <a href="#contact">تواصل معنا</a>
+    </nav>
+    <button class="cart-btn" id="cartBtn" aria-label="سلة التسوق">
+      🛒 <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">أهلاً بك في ليل</h1>
+    <p class="hero-sub">
+      في ليل، نؤمن أن أجمل اللحظات تبدأ بتفصيلة صغيرة...<br>
+      قطعة حلوى، لَمّة، ووقت حلو يستحق أن تتذكره.
+    </p>
+    <a href="#menu" class="btn btn-primary">تصفّحي القائمة</a>
+  </div>
+  <div class="hero-star">✦</div>
+</section>
+
+<!-- ===== Menu ===== -->
+<section class="section" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">قائمتنا</span>
+      <h2 class="section-title">حلويات تُصنع بحب</h2>
+      <p class="section-desc">اختاري ما يحلو لك، وأضيفيها للسلة، وبنوصلها لك بأسرع وقت داخل الأردن.</p>
+    </div>
+    <div class="categories" id="categories"></div>
+    <div class="products-grid" id="productsGrid">
+      <div class="loading">جارٍ التحميل...</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="eyebrow">عنّا</span>
+      <h2 class="section-title">قصة ليل</h2>
+      <p>
+        بدأت "ليل" من شغف بسيط: نصنع لحظات حلوة تُذكَر. كل قطعة حلوى عندنا تُحضَّر بمكونات مختارة،
+        وبلمسة يدوية، وبكثير من الحب.
+      </p>
+      <p>
+        نؤمن إن التفاصيل الصغيرة هي اللي تصنع الفرق — من أول لقمة، لآخر قطعة.
+      </p>
+      <ul class="features">
+        <li>✦ مكونات طازجة ومختارة</li>
+        <li>✦ تحضير يومي بحب</li>
+        <li>✦ توصيل داخل الأردن</li>
+      </ul>
+    </div>
+    <div class="about-img"></div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">تواصلي معنا</span>
+      <h2 class="section-title">نحن قريبون منك</h2>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" id="cWhatsapp" target="_blank">
+        <div class="contact-icon">💬</div>
+        <h3>واتساب</h3>
+        <p id="cWhatsappText">—</p>
+      </a>
+      <a class="contact-card" id="cPhone">
+        <div class="contact-icon">📞</div>
+        <h3>هاتف</h3>
+        <p id="cPhoneText">—</p>
+      </a>
+      <a class="contact-card" id="cEmail">
+        <div class="contact-icon">✉️</div>
+        <h3>إيميل</h3>
+        <p id="cEmailText">—</p>
+      </a>
+      <a class="contact-card" id="cInstagram" target="_blank">
+        <div class="contact-icon">📷</div>
+        <h3>انستغرام</h3>
+        <p id="cInstagramText">—</p>
+      </a>
+      <a class="contact-card" id="cFacebook" target="_blank">
+        <div class="contact-icon">👍</div>
+        <h3>فيسبوك</h3>
+        <p id="cFacebookText">—</p>
+      </a>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>الموقع</h3>
+        <p id="cAddress">—</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="logo">
+      <span class="logo-en">Layl</span>
+      <span class="logo-ar">ليل</span>
+    </div>
+    <p>© <span id="year"></span> ليل — جميع الحقوق محفوظة.</p>
+    <p class="made">صُنع بحب في الأردن ✦</p>
+  </div>
+</footer>
+
+<!-- ===== Cart Drawer ===== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>سلة التسوق</h3>
+    <button id="cartClose" class="icon-btn">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <p class="empty-cart">سلتك فارغة حالياً 🍫</p>
+  </div>
+  <div class="cart-foot" id="cartFoot" style="display:none">
+    <div class="cart-total">
+      <span>المجموع:</span>
+      <strong id="cartTotal">0.00 د.أ</strong>
+    </div>
+    <div class="checkout-form">
+      <input type="text" id="orderName" placeholder="الاسم الكامل *" required>
+      <input type="tel" id="orderPhone" placeholder="رقم الهاتف *" required>
+      <input type="text" id="orderAddress" placeholder="العنوان (المدينة، المنطقة، الشارع) *" required>
+      <textarea id="orderNotes" placeholder="ملاحظات إضافية (اختياري)" rows="2"></textarea>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+      <p class="checkout-note">سيتم تحويلك لواتساب لإرسال تفاصيل الطلب. الدفع عند التسليم أو CliQ.</p>
+    </div>
+  </div>
+</aside>
+
+<button class="fab-cart" id="fabCart">🛒 <span id="fabCount">0</span></button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
