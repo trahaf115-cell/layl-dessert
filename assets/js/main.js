@@ -9,7 +9,6 @@ const state = {
   category: 'all'
 };
 
-/* ---------- Helpers ---------- */
 const $  = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
@@ -23,7 +22,6 @@ function escapeHtml(str = ''){
   }[m]));
 }
 
-/* ---------- Init ---------- */
 async function init(){
   state.cart = JSON.parse(localStorage.getItem(CART_KEY) || '[]');
 
@@ -48,16 +46,13 @@ async function init(){
   $('#year').textContent = new Date().getFullYear();
 }
 
-/* ---------- Settings ---------- */
 function applySettings(){
   const s = state.settings || {};
-
   const wa = (s.whatsapp || '').replace(/\D/g, '');
   if (wa){
     $('#cWhatsapp').href = `https://wa.me/${wa}`;
     $('#cWhatsappText').textContent = '+' + wa;
   }
-
   if (s.phone){
     $('#cPhone').href = `tel:${s.phone.replace(/\s/g,'')}`;
     $('#cPhoneText').textContent = s.phone;
@@ -79,7 +74,6 @@ function applySettings(){
   }
 }
 
-/* ---------- Categories ---------- */
 function renderCategories(){
   const box = $('#categories');
   const cats = [...new Set(state.products.map(p => p.category).filter(Boolean))];
@@ -92,7 +86,6 @@ function renderCategories(){
   `).join('');
 }
 
-/* ---------- Products ---------- */
 function renderProducts(){
   const grid = $('#productsGrid');
   const list = state.category === 'all'
@@ -127,7 +120,6 @@ function renderProducts(){
   }).join('');
 }
 
-/* ---------- Cart ---------- */
 function saveCart(){
   localStorage.setItem(CART_KEY, JSON.stringify(state.cart));
 }
@@ -203,7 +195,7 @@ function renderCart(){
   foot.style.display = 'block';
 }
 
-/* ---------- Checkout via WhatsApp ---------- */
+/* ---------- Checkout via Email (Netlify Forms) ---------- */
 function checkout(){
   if (!state.cart.length) return;
 
@@ -217,31 +209,35 @@ function checkout(){
     return;
   }
 
-  const waNumber = (state.settings.whatsapp || '').replace(/\D/g, '');
-  if (!waNumber){
-    alert('رقم الواتساب غير مُعد بعد. الرجاء إضافته من لوحة التحكم.');
-    return;
-  }
+  const lines = state.cart.map(i => `${i.qty} × ${i.name} — ${money(i.price * i.qty)}`).join(' | ');
 
-  const lines = state.cart.map(i => `• ${i.qty} × ${i.name} — ${money(i.price * i.qty)}`).join('\n');
+  const formData = new FormData();
+  formData.append('form-name', 'order');
+  formData.append('name', name);
+  formData.append('phone', phone);
+  formData.append('address', address);
+  formData.append('notes', notes);
+  formData.append('items', lines);
+  formData.append('total', money(cartTotal()));
 
-  const msg =
-`مرحباً ليل 🍫
-بدي أطلب:
-
-${lines}
-
-المجموع: ${money(cartTotal())}
-
-الاسم: ${name}
-الهاتف: ${phone}
-العنوان: ${address}${notes ? `\nملاحظات: ${notes}` : ''}`;
-
-  const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
+  fetch('/', {
+    method: 'POST',
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    alert('تم إرسال طلبك بنجاح! رح نتواصل معك قريباً.');
+    state.cart = [];
+    saveCart();
+    renderCart();
+    closeCart();
+  })
+  .catch((error) => {
+    console.error(error);
+    alert('عذراً، صار خطأ أثناء إرسال الطلب. جربي مرة ثانية.');
+  });
 }
 
-/* ---------- Drawer ---------- */
 function openCart(){
   $('#cartDrawer').classList.add('open');
   $('#cartOverlay').classList.add('open');
@@ -253,9 +249,7 @@ function closeCart(){
   document.body.style.overflow = '';
 }
 
-/* ---------- Events ---------- */
 function bindEvents(){
-  // Categories
   $('#categories').addEventListener('click', e => {
     const btn = e.target.closest('.cat-btn');
     if (!btn) return;
@@ -264,7 +258,6 @@ function bindEvents(){
     renderProducts();
   });
 
-  // Add to cart
   $('#productsGrid').addEventListener('click', e => {
     const btn = e.target.closest('.add-btn');
     if (!btn) return;
@@ -277,7 +270,6 @@ function bindEvents(){
     }, 1200);
   });
 
-  // Cart qty
   $('#cartBody').addEventListener('click', e => {
     const btn = e.target.closest('[data-action]');
     if (!btn) return;
@@ -287,16 +279,13 @@ function bindEvents(){
     if (action === 'remove') removeItem(name);
   });
 
-  // Open/close cart
   $('#cartBtn').addEventListener('click', openCart);
   $('#fabCart').addEventListener('click', openCart);
   $('#cartClose').addEventListener('click', closeCart);
   $('#cartOverlay').addEventListener('click', closeCart);
 
-  // Checkout
   $('#checkoutBtn').addEventListener('click', checkout);
 
-  // Mobile menu
   $('#menuToggle').addEventListener('click', () => {
     $('#nav').classList.toggle('open');
   });
@@ -304,14 +293,12 @@ function bindEvents(){
     $('#nav').classList.remove('open');
   }));
 
-  // Header shadow on scroll
   window.addEventListener('scroll', () => {
     $('#header').style.background = window.scrollY > 40
       ? 'rgba(21,12,7,.92)'
       : 'rgba(21,12,7,.65)';
   });
 
-  // ESC closes cart
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeCart();
   });
