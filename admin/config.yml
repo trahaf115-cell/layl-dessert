@@ -16,7 +16,7 @@ collections:
         label: "معلومات التواصل"
         file: "content/settings.json"
         fields:
-          - { label: "رقم الواتساب (مثال: 962791234567)", name: "whatsapp", widget: "string" }
+          - { label: "رقم الواتساب", name: "whatsapp", widget: "string" }
           - { label: "رقم الهاتف", name: "phone", widget: "string" }
           - { label: "الإيميل", name: "email", widget: "string" }
           - { label: "انستغرام", name: "instagram", widget: "string", required: false }
