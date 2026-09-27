@@ -1,50 +1,66 @@
 {
   "items": [
     {
-      "name": "كيك الشوكولاتة الفاخر",
-      "description": "طبقات إسفنجية غنية مع غاناش شوكولاتة بلجيكية وكراميل مملح.",
-      "price": 18.00,
-      "category": "كيك",
-      "image": "",
-      "available": true
-    },
-    {
-      "name": "براوني ليل",
-      "description": "براوني طري بقلب شوكولاتة سائلة، يُقدَّم دافئاً.",
-      "price": 3.50,
+      "name": "Choco Nest",
+      "description": "حلوى شوكولاتة غنية، محشية بكيك الشوكولاتة والكنافة المقرمشة، ومغطاة بطبقة شوكولاتة ناعمة.",
+      "price": 1.00,
       "category": "شوكولاتة",
       "image": "",
       "available": true
     },
     {
-      "name": "تشيز كيك التوت",
-      "description": "قاعدة بسكويت مقرمشة مع جبنة كريمية وصوص التوت الطازج.",
-      "price": 4.50,
+      "name": "Midnight Cake",
+      "description": "طبقات من البسكوت مع الحليب المكثف والقشطة، تتوسطها طبقة كريمية، وتُختتم بطبقة غنية من الشوكولاتة.",
+      "price": 1.50,
       "category": "كيك",
       "image": "",
       "available": true
     },
     {
-      "name": "بوكس شوكولاتة مشكّل",
-      "description": "12 قطعة شوكولاتة يدوية بنكهات مختارة.",
-      "price": 15.00,
-      "category": "شوكولاتة",
+      "name": "Cookie Croissant",
+      "description": "كرواسون طازج ومقرمش، مغطى بقطع كوكيز الشوكولاتة الغنية.",
+      "price": 2.00,
+      "category": "كرواسون",
       "image": "",
       "available": true
     },
     {
-      "name": "كنافة بالقشطة",
-      "description": "كنافة طازجة بالقشطة والقطر، تُحضَّر عند الطلب.",
-      "price": 6.00,
-      "category": "حلويات شرقية",
+      "name": "Caramel Cheese Taco",
+      "description": "تاكو تشيز كيك مقرمش، محشو بكريمة التشيز كيك، ومغطى بالكراميل وقطع الكرنشي.",
+      "price": 1.50,
+      "category": "حلويات",
       "image": "",
       "available": true
     },
     {
-      "name": "آيس كريم الفانيلا",
-      "description": "آيس كريم كريمي بفانيلا بوربون أصلي.",
-      "price": 3.00,
-      "category": "آيس كريم",
+      "name": "Lemon & Marshmallow Cookies",
+      "description": "كوكيز طرية مع صوص الليمون المنعش، مغطاة بالمارشميلو المحمّص.",
+      "price": 1.50,
+      "category": "كوكيز",
+      "image": "",
+      "available": true
+    },
+    {
+      "name": "Tiramisu Cookies",
+      "description": "كوكيز طرية غنية بالقهوة، مغطاة بكريمة التيراميسو ورشة شوكولاتة.",
+      "price": 1.50,
+      "category": "كوكيز",
+      "image": "",
+      "available": true
+    },
+    {
+      "name": "Crunchy Caramel Cookies",
+      "description": "كوكيز طرية محشية بالكراميل الكرنشي، مع قطع الشوكولاتة ورشة ملح خفيفة.",
+      "price": 1.50,
+      "category": "كوكيز",
+      "image": "",
+      "available": true
+    },
+    {
+      "name": "Classic Cookies",
+      "description": "كوكيز كلاسيكية طرية وغنية بقطع الشوكولاتة، مخبوزة بإتقان مع لمسة خفيفة من الملح.",
+      "price": 1.50,
+      "category": "كوكيز",
       "image": "",
       "available": true
     }
